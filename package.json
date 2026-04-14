@@ -1,0 +1,14 @@
+{
+  "name": "mount-kush-website",
+  "version": "1.0.0",
+  "description": "Mount Kush — Cannabis Lifestyle Store, Johannesburg",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  },
+  "engines": { "node": ">=18.0.0" }
+}

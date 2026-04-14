@@ -1,0 +1,176 @@
+---
+// WelcomePopup.astro — Unified welcome & compliance popup
+// Appears on first visit. Suppressed for 24 hours after dismissal.
+---
+
+<div class="mkp-overlay mkp-hidden" id="mkp-overlay" role="dialog" aria-modal="true" aria-labelledby="mkp-title">
+  <div class="mkp-box">
+
+    <button class="mkp-close" id="mkp-close" aria-label="Close">✕</button>
+
+    <div class="mkp-logo">
+      <img src="/images/logo.png" alt="Mount Kush"/>
+    </div>
+
+    <h2 class="mkp-title" id="mkp-title">Welcome to Mount Kush</h2>
+
+    <p class="mkp-text">
+      Welcome to Mount Kush. Access to Mount Kush is intended for persons 18 years and older.
+    </p>
+    <p class="mkp-text">
+      SAPHRA Section 21 authorisation may support access to regulated medical cannabis pathways and recognised collection points where applicable.
+    </p>
+
+    <div class="mkp-actions">
+      <a
+        href="https://hub.synergywellness.co.za/welcome?store=Mount+Kush+Randburg"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-gold btn-lg mkp-btn-primary"
+        id="mkp-register"
+      >
+        Register Now
+      </a>
+      <button class="btn btn-outline-white mkp-btn-secondary" id="mkp-enter">
+        Enter Site
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .mkp-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(10, 4, 22, 0.68);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    transition: opacity 0.3s ease;
+  }
+  .mkp-overlay.mkp-hidden {
+    display: none;
+  }
+
+  .mkp-box {
+    position: relative;
+    background: linear-gradient(145deg, var(--purple) 0%, var(--purple-deep) 100%);
+    border: 1px solid rgba(212, 160, 23, 0.35);
+    border-radius: var(--radius-xl);
+    padding: 2.75rem 2.25rem 2.25rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 64px rgba(0, 0, 0, 0.5), 0 0 32px rgba(212, 160, 23, 0.12);
+    animation: mkpFadeIn 0.4s ease;
+  }
+  @keyframes mkpFadeIn {
+    from { opacity: 0; transform: scale(0.96) translateY(10px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+
+  .mkp-close {
+    position: absolute;
+    top: 0.9rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.45rem;
+    line-height: 1;
+    transition: color 0.18s;
+  }
+  .mkp-close:hover { color: var(--gold-bright); }
+
+  .mkp-logo {
+    text-align: center;
+    margin-bottom: 1.4rem;
+  }
+  .mkp-logo img {
+    height: 52px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .mkp-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    letter-spacing: 0.05em;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .mkp-text {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.75;
+    margin-bottom: 0.85rem;
+  }
+
+  .mkp-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .mkp-btn-primary {
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+  }
+  .mkp-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 480px) {
+    .mkp-box { padding: 2.25rem 1.4rem 1.75rem; }
+    .mkp-text { font-size: 0.88rem; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const POPUP_KEY = 'mk_welcome_v3';
+
+    const overlay = document.getElementById('mkp-overlay');
+    if (!overlay) return;
+
+    // Safe sessionStorage helpers — popup reappears in each new browser session
+    function getStored() {
+      try { return sessionStorage.getItem(POPUP_KEY); } catch (e) { return null; }
+    }
+    function setStored() {
+      try { sessionStorage.setItem(POPUP_KEY, '1'); } catch (e) {}
+    }
+
+    // Show popup if not already dismissed this session
+    if (!getStored()) {
+      overlay.classList.remove('mkp-hidden');
+    }
+
+    function dismiss() {
+      setStored();
+      overlay.style.opacity = '0';
+      overlay.style.transition = 'opacity 0.3s ease';
+      setTimeout(function () { overlay.classList.add('mkp-hidden'); }, 300);
+    }
+
+    document.getElementById('mkp-close')?.addEventListener('click', dismiss);
+    document.getElementById('mkp-enter')?.addEventListener('click', dismiss);
+    document.getElementById('mkp-register')?.addEventListener('click', dismiss);
+
+    // Clicking the dark overlay outside the box also dismisses
+    overlay.addEventListener('click', function (e) {
+      if (e.target === overlay) dismiss();
+    });
+  });
+</script>

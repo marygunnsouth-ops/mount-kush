@@ -1,0 +1,417 @@
+---
+// index.astro — Mount Kush Homepage
+import Layout from '../layouts/Layout.astro';
+import { articles } from '../data/articles.js';
+const featuredArticles = articles.filter(a => a.featured);
+const WA = 'https://wa.me/27639260217?text=' + encodeURIComponent("Hi Mount Kush! I'd like to place an order 🌿");
+---
+<Layout
+  title="Mount Kush | Cannabis Lifestyle Store Johannesburg — High on Healing"
+  description="Mount Kush is Johannesburg's premium cannabis lifestyle store. Accessories, lifestyle gear & merchandise. Three locations. Order privately via WhatsApp."
+>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('/images/hero.png');"></div>
+    <div class="container">
+      <div class="hero-content fade-up">
+        <div class="hero-tagline">High on Healing</div>
+        <h1>MOUNT<br/><span>KUSH</span></h1>
+        <p class="hero-sub">
+          Johannesburg's premier cannabis lifestyle store.<br/>
+          Quality accessories, lifestyle gear & culture.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href={WA} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order via WhatsApp
+          </a>
+          <a href="/stores" class="btn btn-outline-gold btn-lg">📍 Find Our Stores</a>
+        </div>
+        <p class="hero-disclaimer">
+          <span>18+ only.</span> Private cannabis lifestyle store. Orders handled discreetly via WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TRUST STRIP — 3 STORES
+  ══════════════════════════════════════════ -->
+  <div style="background: rgba(212,160,23,0.08); border-top:1px solid rgba(212,160,23,0.2); border-bottom:1px solid rgba(212,160,23,0.2); padding:1.25rem 0;">
+    <div class="container">
+      <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; align-items:center;">
+        {["📍 Blackheath", "📍 Allens Nek", "📍 Berario"].map(s => (
+          <span style="font-size:0.88rem; font-weight:600; color:rgba(255,255,255,0.65); letter-spacing:0.06em;">{s}</span>
+        ))}
+        <span style="font-size:0.88rem; color:rgba(255,255,255,0.45);">|</span>
+        <a href="tel:0639260217" style="font-size:0.88rem; font-weight:700; color:#D4A017; letter-spacing:0.04em;">📞 063 926 0217</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT — WITH REAL STORE PHOTO
+  ══════════════════════════════════════════ -->
+  <div class="img-split" style="min-height:560px;">
+    <div class="img-split-img">
+      <img src="/images/mascot.png" alt="Mount Kush Blackheath store at night" loading="lazy"/>
+    </div>
+    <div class="img-split-content" style="background:var(--purple-deep);">
+      <div class="section-eyebrow">Our Story</div>
+      <h2 class="display-lg" style="margin-bottom:1.25rem;">More than<br/>a store</h2>
+      <p class="lead">
+        Mount Kush is Johannesburg's home for cannabis lifestyle culture.
+        We're not just a shop — we're a community built around healing,
+        quality, and the plant we love.
+      </p>
+      <p class="body-text" style="margin-top:1rem;">
+        With numerous stores across Joburg, we bring premium cannabis accessories,
+        lifestyle products, and genuine culture to every neighbourhood we serve.
+        Every product we carry is curated with intention.
+      </p>
+      <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="/about" class="btn btn-outline-gold">Our Story →</a>
+        <a href="/stores" class="btn btn-outline-white">Find a Store</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       HOW TO ORDER
+  ══════════════════════════════════════════ -->
+  <section class="section section--charcoal">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:5rem; align-items:center; max-width:1000px; margin:0 auto;">
+        <div>
+          <div class="section-eyebrow">Private & Discreet</div>
+          <h2 class="display-md" style="margin-bottom:1.25rem;">How to<br/>Order</h2>
+          <p class="body-text">
+            We keep things simple, private, and secure.
+            All orders are handled personally via WhatsApp —
+            no accounts, no checkout, no fuss.
+          </p>
+          <p class="body-text" style="margin-top:0.75rem;">
+            Mount Kush respects your privacy. All enquiries and orders are handled discreetly.
+          </p>
+        </div>
+        <div class="order-steps">
+          {[
+            ["Browse our products on the website", "Explore accessories, lifestyle gear and merchandise."],
+            ["Tap Order via WhatsApp", "A chat opens directly with our team. No accounts needed."],
+            ["We confirm availability", "Our team checks stock and advises you on your order."],
+            ["Receive your secure payment link", "We send a verified FNB payment link — safe and secure."],
+            ["Order confirmed", "Your order is locked in. Collect in-store or discuss delivery."],
+          ].map(([title, desc], i) => (
+            <div class="order-step">
+              <div class="step-num">{i + 1}</div>
+              <div class="step-content">
+                <h4>{title}</h4>
+                <p>{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       PRODUCTS — CATEGORIES
+  ══════════════════════════════════════════ -->
+  <section class="section section--deep">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3.5rem;">
+        <div class="section-eyebrow" style="justify-content:center;">What We Carry</div>
+        <h2 class="display-md">Curated for the Culture</h2>
+        <p class="lead" style="margin:1rem auto 0; text-align:center; max-width:500px;">
+          Every product in our stores is hand-selected for quality and authenticity.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <img src="/images/instore.png" alt="Mount Kush accessories and products display" class="card-img" loading="lazy"/>
+          <div class="card-body">
+            <span class="card-tag">Accessories</span>
+            <div class="card-title">Smoking Accessories</div>
+            <p class="card-text">Grinders, papers, pipes, bongs, vaporizers and everything you need for a premium session.</p>
+            <a href={WA} target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-placeholder">
+            [IMAGE PLACEHOLDER – Mount Kush lifestyle gear products]
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Lifestyle</span>
+            <div class="card-title">Lifestyle Gear</div>
+            <p class="card-text">Storage solutions, rolling trays, lighters, cleaning kits and everyday carry essentials for the culture.</p>
+            <a href={WA} target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img-placeholder">
+            [IMAGE PLACEHOLDER – Mount Kush apparel and merchandise]
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Merch</span>
+            <div class="card-title">Merchandise</div>
+            <p class="card-text">Wear the culture. Mount Kush hoodies, tees, caps and branded gear for the real ones.</p>
+            <a href={WA} target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Order via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href="/products" class="btn btn-outline-gold btn-lg">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       COMMUNITY / MASCOT SECTION
+  ══════════════════════════════════════════ -->
+  <section style="position:relative; overflow:hidden; min-height:600px; display:flex; align-items:center;">
+    <div style="position:absolute; inset:0;">
+      <img src="/images/mascot.png" alt="Mount Kush mascot" style="width:100%; height:100%; object-fit:cover; object-position:center top;"/>
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(10,4,22,0.92) 40%, rgba(10,4,22,0.4) 100%);"></div>
+    </div>
+    <div class="container" style="position:relative; z-index:2; padding-top:5rem; padding-bottom:5rem;">
+      <div style="max-width:520px;">
+        <div class="section-eyebrow">Our Culture</div>
+        <h2 class="display-lg" style="margin-bottom:1.25rem;">The Kush<br/>Community</h2>
+        <p class="lead">
+          We're building a community of real people who appreciate
+          the plant, the culture, and the lifestyle.
+        </p>
+        <p class="body-text" style="margin-top:1rem;">
+          From the art on our walls to the products on our shelves,
+          everything at Mount Kush is chosen with the culture in mind.
+        </p>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="/community" class="btn btn-gold btn-lg">Explore the Culture →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       WALL ART — BRAND CREDIBILITY
+  ══════════════════════════════════════════ -->
+  <div class="img-split" style="min-height:480px;">
+    <div class="img-split-content" style="background:var(--charcoal);">
+      <div class="section-eyebrow">Inside Mount Kush</div>
+      <h2 class="display-md" style="margin-bottom:1.25rem;">Art-filled<br/>Spaces</h2>
+      <p class="lead">
+        Walk into any Mount Kush store and you'll know immediately — this is not your average shop.
+        Our stores are designed to inspire and immerse.
+      </p>
+      <p class="body-text" style="margin-top:1rem;">
+        Custom murals, curated product displays, and a vibe that feels like home.
+        Come for the products. Stay for the atmosphere.
+      </p>
+      <div style="margin-top:2rem;">
+        <a href="/stores" class="btn btn-outline-gold">Find Your Nearest Store →</a>
+      </div>
+    </div>
+    <div class="img-split-img">
+      <img src="/images/wall-art-orange.jpg" alt="Mount Kush store interior wall mural" loading="lazy"/>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       FEATURED ARTICLES
+  ══════════════════════════════════════════ -->
+  <section class="section section--charcoal">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3.5rem;">
+        <div class="section-eyebrow" style="justify-content:center;">From the Journal</div>
+        <h2 class="display-md">Latest Insights</h2>
+        <p class="lead" style="margin:1rem auto 0; text-align:center; max-width:500px;">
+          Cannabis education, wellness guidance and culture — written for curious, informed adults.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {featuredArticles.map((article) => (
+          <a href={`/articles/${article.slug}`} class="card article-card-link">
+            {article.image ? (
+              <img src={article.image} alt={article.title} class="card-img" loading="lazy"/>
+            ) : (
+              <div class="card-img-placeholder">Mount Kush Journal</div>
+            )}
+            <div class="card-body">
+              <span class="card-tag">{article.tag}</span>
+              <div class="card-title">{article.title}</div>
+              <p class="card-text">{article.excerpt}</p>
+              <span class="btn btn-outline-gold btn-sm">Read Article →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href="/articles" class="btn btn-outline-gold btn-lg">View All Articles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       LOYALTY PROGRAMME
+  ══════════════════════════════════════════ -->
+  <section class="loyalty-section section">
+    <div class="container text-center">
+      <div class="section-eyebrow" style="justify-content:center;">Kush Rewards</div>
+      <h2 class="display-md" style="margin-bottom:0.75rem;">Join the<br/>Loyalty Programme</h2>
+      <p class="lead" style="margin:0 auto 0.5rem; text-align:center; max-width:480px;">
+        Sign up with your Name, Surname and number to start earning rewards on every purchase.
+      </p>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.35); margin-bottom:0;">
+        Your details are kept private. We do not share your information. POPIA compliant.
+      </p>
+
+      <form
+        name="loyalty-signup"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-loyalty"
+        action="/success"
+        class="loyalty-form"
+      >
+        <input type="hidden" name="form-name" value="loyalty-signup"/>
+        <p style="display:none;"><label>Don't fill: <input name="bot-loyalty"/></label></p>
+        <input
+          type="text"
+          name="first_name"
+          placeholder="First name"
+          required
+          class="loyalty-input"
+          autocomplete="given-name"
+        />
+        <input
+          type="tel"
+          name="whatsapp_number"
+          placeholder="WhatsApp number"
+          required
+          class="loyalty-input"
+          autocomplete="tel"
+        />
+        <button type="submit" class="btn btn-gold">
+          Join & Earn Rewards 🌿
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       STORES PREVIEW CTA
+  ══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--purple-deep);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <div class="section-eyebrow" style="justify-content:center;">Three Locations</div>
+        <h2 class="display-md" style="margin-bottom:0.75rem;">Visit a Mount Kush Store</h2>
+        <p class="lead" style="margin:0 auto; text-align:center; max-width:480px;">
+          Walk in, browse the shelves, meet the team. We're open across Johannesburg.
+        </p>
+      </div>
+
+      <div class="grid-3">
+  {[
+    {
+      name: "Blackheath",
+      addr: "Blackheath Pavilion, 311 Pendoring Road",
+      img: "/images/blackheath-yeti.png",
+      id: "blackheath",
+      hours: "Mon–Thu: 08:30–19:00  |  Fri–Sat: 08:30–20:00  |  Sun: 08:30–16:00"
+    },
+    {
+      name: "Allens Nek",
+      addr: "72 Rinyani Avenue, Weltevredenpark, Roodepoort",
+      img: "/images/allens-nek-yeti.png",
+      id: "allens-nek",
+      hours: "Mon–Thu: 09:00–19:00  |  Fri–Sat: 09:00–20:00  |  Sun: 09:00–18:00"
+    },
+    {
+      name: "Berario",
+      addr: "Shop 8, Arkansas Avenue, Berario, Randburg",
+      img: "/images/berario.jpg",
+      id: "berario",
+      hours: "Mon–Thu: 09:00–19:00  |  Fri–Sat: 09:00–20:00  |  Sun: 09:00–18:00"
+    }
+  ].map((store) => (
+    <div class="store-card">
+      {store.img && (
+        <img
+          src={store.img}
+          alt={`Mount Kush ${store.name}`}
+          class="store-card-img"
+          loading="lazy"
+        />
+      )}
+
+      <div class="store-card-body">
+        <div class="store-name">{store.name}</div>
+        <p class="store-address">{store.addr}</p>
+
+        <div class="store-hours">
+          <span class="dot"></span>
+          <span>{store.hours}</span>
+        </div>
+
+        <a
+          href={`https://wa.me/27639260217?text=${encodeURIComponent(`Hi! I'd like to order from ${store.name}`)}`}
+          target="_blank"
+          rel="noopener"
+          class="btn btn-whatsapp"
+          style="width:100%; justify-content:center;"
+        >
+          Order from {store.name}
+        </a>
+      </div>
+    </div>
+  ))}
+</div>
+
+<div class="text-center" style="margin-top:2.5rem;">
+  <a href="/stores" class="btn btn-outline-gold btn-lg">View Full Store Details →</a>
+</div>
+              
+       </div>
+
+      <div class="text-center" style="margin-top:2.5rem;">
+         </div>
+  </section>
+
+
+</Layout>
+
+<style>
+  .article-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .article-card-link .btn {
+    pointer-events: none;
+  }
+  @media (max-width:768px) {
+    .img-split { grid-template-columns: 1fr !important; }
+    .section div[style*="grid-template-columns:1fr 1.2fr"] { grid-template-columns: 1fr !important; }
+  }
+</style>
+

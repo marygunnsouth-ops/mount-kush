@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const stores = [
+  {
+    name: "Mount Kush Blackheath",
+    address: "Blackheath Pavilion, 311 Pendoring Road, Blackheath",
+    phone: "063 926 0217",
+    img: "/images/blackheath-yeti.png",
+    map: "https://maps.google.com/?q=Mount+Kush+Blackheath",
+    hours: [
+      "Mon–Thu: 08:30–19:00",
+      "Fri–Sat:  08:30–20:00",
+      "Sun:       08:30–16:00",
+    ]
+  },
+
+  {
+    name: "Mount Kush Berario",
+    address: "Shop 8, Arkansas Avenue, Berario, Randburg",
+    phone: "063 926 0217",
+    img: "/images/berario.jpg",
+    map: "https://maps.google.com/?q=Mount+Kush+Berario",
+    hours: [
+      "Mon–Thu: 09:00–19:00",
+      "Fri–Sat:  09:00–20:00",
+      "Sun:       09:00–18:00",
+    ]
+  },
+
+  {
+    name: "Mount Kush Allens Nek",
+    address: "72 Rinyani Avenue, Weltevredenpark, Roodepoort",
+    phone: "063 926 0217",
+    img: "/images/allens-nek-yeti.png",
+    map: "https://maps.google.com/?q=Mount+Kush+Allens+Nek",
+    hours: [
+      "Mon–Thu: 09:00–19:00",
+      "Fri–Sat:  09:00–20:00",
+      "Sun:       09:00–18:00",
+    ]
+  }
+];
+---
+
+<Layout title="Mount Kush Stores">
+
+<section class="stores">
+
+{stores.map((store) => (
+
+<div class="store-card">
+
+<img src={store.img} alt={store.name} class="store-image" />
+
+<h2>{store.name}</h2>
+
+<p>{store.address}</p>
+
+<div class="store-hours">
+  {store.hours.map(h => <div class="store-hour-row">🕐 {h}</div>)}
+</div>
+
+<a class="map-btn" href={store.map} target="_blank">
+Open Location in Google Maps
+</a>
+
+<a
+class="order-btn"
+href={`https://wa.me/27639260217?text=Hi Mount Kush! I'd like to order from ${store.name}`}
+target="_blank"
+>
+Order from this store
+</a>
+
+</div>
+
+))}
+
+</section>
+
+<style>
+
+.stores{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.store-card{
+background:#1e1e1e;
+padding:20px;
+border-radius:18px;
+text-align:center;
+}
+
+.store-image{
+width:100%;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.map-btn{
+display:inline-block;
+background:#4285F4;
+color:white;
+padding:10px 20px;
+border-radius:20px;
+text-decoration:none;
+margin-top:10px;
+}
+
+.order-btn{
+display:inline-block;
+background:#25D366;
+color:white;
+padding:12px 22px;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+margin-top:10px;
+}
+
+.store-hours{
+margin:12px 0;
+padding:10px 0;
+border-top:1px solid rgba(255,255,255,0.08);
+border-bottom:1px solid rgba(255,255,255,0.08);
+text-align:left;
+}
+
+.store-hour-row{
+font-size:0.82rem;
+color:rgba(255,255,255,0.5);
+padding:2px 0;
+}
+
+</style>
+
+</Layout>

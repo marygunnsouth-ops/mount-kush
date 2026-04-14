@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+const WA = 'https://wa.me/27639260217?text=' + encodeURIComponent("Hi Mount Kush! 🌿");
+---
+<Layout title="About Mount Kush | Cannabis Lifestyle Store Johannesburg" description="Mount Kush is Johannesburg's premium cannabis lifestyle brand. Three stores across the city. High on Healing.">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-eyebrow">Our Story</div>
+      <h1 class="display-lg">High on Healing</h1>
+      <p class="lead" style="margin-top:1rem;">Three stores. One culture. Johannesburg's home for cannabis lifestyle.</p>
+    </div>
+  </section>
+
+  <!-- Hero image split -->
+  <div class="img-split">
+    <div class="img-split-img">
+      <img src="/images/mount-kush-high-on-healing.png" alt="Mount Kush Allens Nek store" loading="lazy"/>
+    </div>
+    <div class="img-split-content" style="background:var(--charcoal);">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="display-md" style="margin-bottom:1.25rem;">Born from the Culture</h2>
+      <p class="lead">Mount Kush started with a simple belief: cannabis deserves a home that treats it with the respect it's earned.</p>
+      <p class="body-text" style="margin-top:1rem;">
+        We're not a generic shop. We're a cannabis lifestyle brand built on authenticity,
+        quality, and community. From our hand-picked product range to the murals on our walls —
+        everything at Mount Kush reflects a genuine love for the plant and the people who embrace it.
+      </p>
+      <p class="body-text" style="margin-top:0.75rem;">
+        Today we operate numerous stores across Johannesburg, serving thousands of customers who know that
+        when it comes to cannabis culture in Joburg, Mount Kush is the real thing.
+      </p>
+    </div>
+  </div>
+
+  <!-- Wall art showcase -->
+  <section class="section" style="background:var(--purple-deep);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3rem;">
+        <div class="section-eyebrow" style="justify-content:center;">Inside Our Stores</div>
+        <h2 class="display-md">Art Lives Here</h2>
+        <p class="lead" style="margin:1rem auto 0; text-align:center; max-width:520px;">
+          Walk into any Mount Kush store and you're walking into a curated space. 
+          Custom murals by local artists. Carefully designed displays. A vibe that's entirely ours.
+        </p>
+      </div>
+
+      <div class="grid-2" style="gap:1.5rem;">
+        <div style="border-radius:var(--radius-lg); overflow:hidden; height:400px;">
+          <img src="/images/wall-art-orange.jpg" alt="Mount Kush interior mural - mountains and cannabis" style="width:100%; height:100%; object-fit:cover;"/>
+        </div>
+        <div style="border-radius:var(--radius-lg); overflow:hidden; height:400px;">
+          <img src="/images/wall-art-pink.jpg" alt="Mount Kush interior mural - characters" style="width:100%; height:100%; object-fit:cover;"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section--charcoal">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3.5rem;">
+        <div class="section-eyebrow" style="justify-content:center;">What We Stand For</div>
+        <h2 class="display-md">The Mount Kush Way</h2>
+      </div>
+      <div class="grid-3">
+        {[
+          {icon:"🌿", title:"Quality First", desc:"Every product in our stores is hand-selected. We only carry what we'd use ourselves."},
+          {icon:"🔒", title:"Privacy & Discretion", desc:"Your orders are handled privately via WhatsApp. We respect your business and keep it between us."},
+          {icon:"🤝", title:"Community", desc:"We're part of Johannesburg's cannabis culture, not above it. We show up for our community."},
+          {icon:"🎨", title:"Culture", desc:"From the murals on our walls to the mascot on our merch — culture is embedded in everything we do."},
+          {icon:"⚖️", title:"Responsible", desc:"We promote responsible adult use. We're serious about only serving those who are of age."},
+          {icon:"📍", title:"Local", desc:"Three stores, three neighbourhoods, one city. Mount Kush is proudly Joburg."},
+        ].map(v => (
+          <div class="card" style="text-align:center; padding:2.5rem 2rem;">
+            <div style="font-size:2.5rem; margin-bottom:1rem;">{v.icon}</div>
+            <div class="card-title" style="font-size:1.25rem;">{v.title}</div>
+            <p class="card-text">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--purple-deep); text-align:center;">
+    <div class="container">
+      <h2 class="display-md" style="margin-bottom:1rem;">Come see us</h2>
+      <p class="lead" style="margin:0 auto 2rem; text-align:center;">Three locations. One culture. We're always open for the community.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/stores" class="btn btn-gold btn-lg">Find Our Stores</a>
+        <a href={WA} target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

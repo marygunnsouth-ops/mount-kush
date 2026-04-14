@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+const WA = 'https://wa.me/27639260217?text=' + encodeURIComponent("Hi Mount Kush! 🌿");
+---
+<Layout title="Culture & Community | Mount Kush Cannabis Lifestyle Johannesburg" description="The Mount Kush community. Cannabis lifestyle, culture, and the iconic Yeti mascot. Johannesburg's real cannabis culture brand.">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-eyebrow">The Culture</div>
+      <h1 class="display-lg" style="margin-bottom:1rem;">More than a store.<br/>A community.</h1>
+      <p class="lead">At Mount Kush, cannabis is something we live, breathe, and build around every day.</p>
+    </div>
+  </section>
+
+  <!-- Mascot hero section -->
+  <section style="position:relative; overflow:hidden; min-height:640px; display:flex; align-items:center;">
+    <div style="position:absolute; inset:0;">
+      <img src="/images/mascot.png" alt="Mount Kush Yeti mascot" style="width:100%; height:100%; object-fit:cover;"/>
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(10,4,22,0.9) 45%, transparent 100%);"></div>
+    </div>
+    <div class="container" style="position:relative; z-index:2; padding:5rem 0;">
+      <div style="max-width:540px;">
+        <div class="section-eyebrow">Our Identity</div>
+        <h2 class="display-lg" style="margin-bottom:1.25rem;">A Brand<br/>Built on Culture</h2>
+        <p class="lead">Mount Kush has always been about more than products. It's about an identity — one that's rooted in the plant, expressed through art, and felt the moment you walk through our doors.</p>
+        <p class="body-text" style="margin-top:1rem;">Our brand stands for something. Healing, authenticity, and a culture that takes cannabis seriously — without taking itself too seriously.</p>
+        <div style="margin-top:2rem;">
+          <a href="/products" class="btn btn-gold btn-lg">Shop the Merch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pink gorilla mural section -->
+  <div class="img-split">
+    <div class="img-split-img">
+      <img src="/images/wall-art-pink.jpg" alt="Mount Kush store interior art - characters" loading="lazy"/>
+    </div>
+    <div class="img-split-content" style="background:var(--charcoal);">
+      <div class="section-eyebrow">Art & Identity</div>
+      <h2 class="display-md" style="margin-bottom:1.25rem;">A brand that<br/>shows up</h2>
+      <p class="lead">Every wall inside a Mount Kush store is a canvas. We commission original murals from local artists who get the culture — because the space you're in should feel as good as the products you're buying.</p>
+      <p class="body-text" style="margin-top:1rem;">Walk into Blackheath. Walk into Allens Nek. Walk into Berario. You'll immediately know you're somewhere different.</p>
+    </div>
+  </div>
+
+  <!-- Culture pillars -->
+  <section class="section section--deep">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:3.5rem;">
+        <div class="section-eyebrow" style="justify-content:center;">What We Live By</div>
+        <h2 class="display-md">The Kush Code</h2>
+      </div>
+      <div class="grid-3">
+        {[
+          {icon:"🌿", title:"The Plant First", desc:"Everything at Mount Kush starts with respect for cannabis — the plant, its history, and its community."},
+          {icon:"🎨", title:"Art is Expression", desc:"Cannabis culture has always had a visual identity. We honour that through the art in our stores and on our brand."},
+          {icon:"🔒", title:"Your Business is Yours", desc:"We handle every order privately and discreetly. What you buy is between you and us. Full stop."},
+          {icon:"🏙️", title:"Proudly Johannesburg", desc:"We're built in Joburg, for Joburg. Numerous stores, one city."},
+          {icon:"🤝", title:"The Community is Sacred", desc:"Our customers aren't transactions — they're the reason we exist. We show up for the community every day."},
+          {icon:"⭐", title:"Quality or Nothing", desc:"We don't carry products we wouldn't use ourselves. Every item in the store passed our personal quality bar first."},
+        ].map(v => (
+          <div class="card" style="padding:2.5rem 2rem; text-align:center;">
+            <div style="font-size:2.5rem; margin-bottom:1rem;">{v.icon}</div>
+            <div class="card-title" style="font-size:1.2rem;">{v.title}</div>
+            <p class="card-text">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Loyalty CTA -->
+  <section class="loyalty-section section">
+    <div class="container text-center">
+      <div class="section-eyebrow" style="justify-content:center;">Kush Rewards</div>
+      <h2 class="display-md" style="margin-bottom:0.75rem;">Be part of the family</h2>
+      <p class="lead" style="margin:0 auto 0.75rem; text-align:center; max-width:460px;">Join the Kush Membership & Rewards programme. Sign up with your name, surname and number to start earning.</p>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.35);">POPIA compliant. Your details stay private.</p>
+      <form name="loyalty-signup" method="POST" data-netlify="true" netlify-honeypot="bot-loyalty" action="/success" class="loyalty-form">
+        <input type="hidden" name="form-name" value="loyalty-signup"/>
+        <p style="display:none;"><input name="bot-loyalty"/></p>
+        <input type="text" name="first_name" placeholder="Name & Surname" required class="loyalty-input" autocomplete="given-name"/>
+        <input type="tel" name="whatsapp_number" placeholder="WhatsApp number" required class="loyalty-input" autocomplete="tel"/>
+        <button type="submit" class="btn btn-gold">Join & Earn Rewards 🌿</button>
+      </form>
+    </div>
+  </section>
+
+</Layout>
