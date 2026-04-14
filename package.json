@@ -4,10 +4,11 @@
   "description": "Mount Kush — Cannabis Lifestyle Store, Johannesburg",
   "scripts": {
     "dev": "astro dev",
-    "build": "node node_modules/astro/bin/astro.js build",
+    "build": "astro build",
     "preview": "astro preview"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "astro": "^6.1.6"
   },
   "engines": {
